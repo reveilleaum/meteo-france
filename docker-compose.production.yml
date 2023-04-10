@@ -1,0 +1,10 @@
+# @format
+
+version: "3.8"
+services:
+  nextjs:
+    image: test-meteo-france-prod
+    build:
+      dockerfile: Dockerfile.production
+    ports:
+      - "3000:3000"
