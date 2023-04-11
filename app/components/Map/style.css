@@ -1,0 +1,43 @@
+/** @format */
+
+@keyframes hoverAnim {
+  from {
+    stroke-width: 2 !important;
+  }
+  to {
+    stroke-width: 10 !important;
+  }
+}
+
+#map-svg {
+  transform: scale(0.6);
+}
+
+#map-svg path {
+  fill: #4f35e2 !important;
+  fill-opacity: 1 !important;
+  stroke: white !important;
+  stroke-width: 3 !important;
+  stroke-opacity: 0.2 !important;
+}
+
+#map-svg tspan {
+  fill: white !important;
+  font-style: normal !important;
+  font-size: 18px !important;
+  font-family: "Inter";
+}
+
+#map-svg ellipse {
+  fill: #da2e2e !important;
+  stroke: white !important;
+  stroke-width: 2 !important;
+  transition: stroke-width 0.2s ease;
+  rx: 7.5;
+  ry: 8;
+  cursor: pointer;
+}
+
+#map-svg ellipse:hover {
+  stroke-width: 5 !important;
+}
