@@ -13,7 +13,7 @@ export const getGeo = async (city: string) => {
 
 export const getForecast = async (lat: number, lon: number) => {
   const response = await fetch(
-    `${API_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${APP_ID}`,
+    `${API_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&lang=fr&appid=${APP_ID}`,
     { method: "GET" }
   );
   return response.json();

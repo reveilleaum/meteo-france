@@ -1,0 +1,22 @@
+/** @format */
+
+.content_weatherIcon {
+  margin: auto;
+}
+.content_hourlyInfos {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: auto;
+}
+.content_hourlyInfos_items {
+  display: grid;
+  grid-template-columns: repeat(12, 60px);
+}
+.content_hourlyInfos_item {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 20px 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

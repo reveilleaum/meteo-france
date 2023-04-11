@@ -1,16 +1,17 @@
 /** @format */
 
-@keyframes hoverAnim {
-  from {
-    stroke-width: 2 !important;
-  }
-  to {
-    stroke-width: 10 !important;
-  }
+#map-svg {
+  width: 100%;
+  height: auto;
+  transition: transform 0.8s ease, opacity 0.5s ease;
 }
 
-#map-svg {
-  transform: scale(0.6);
+#map-svg.offset {
+  transform: translate(-20%, -2%);
+}
+
+#map-svg .map_svg__main-group {
+  transform: scale(1.1) translate(0px, 0px);
 }
 
 #map-svg path {
@@ -25,7 +26,7 @@
   fill: white !important;
   font-style: normal !important;
   font-size: 18px !important;
-  font-family: "Inter";
+  cursor: default;
 }
 
 #map-svg ellipse {
@@ -33,11 +34,43 @@
   stroke: white !important;
   stroke-width: 2 !important;
   transition: stroke-width 0.2s ease;
+  cursor: pointer;
   rx: 7.5;
   ry: 8;
-  cursor: pointer;
 }
 
 #map-svg ellipse:hover {
   stroke-width: 5 !important;
+}
+
+@media (max-width: 1024px) {
+  #map-svg {
+    transform: translate(0, 0);
+  }
+}
+
+@media (max-width: 720px) {
+  .mobile-container {
+    overflow: scroll;
+    position: relative;
+  }
+  .zoom-btn {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: grey;
+  }
+  .zoom-btn span {
+    display: block;
+    text-align: center;
+    width: 30px;
+    padding: 5px 0;
+  }
+  .zoom-btn span:first-child {
+    border-bottom: solid 1px white;
+  }
 }
