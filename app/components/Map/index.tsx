@@ -26,7 +26,7 @@ export default function Map({ selectCity, data, windowWidth }: Props) {
         }}
       />
     );
-  }, [data]);
+  }, [data, selectCity]);
 
   const contentMobile = useMemo(() => {
     return (
@@ -34,7 +34,7 @@ export default function Map({ selectCity, data, windowWidth }: Props) {
         {content}
       </div>
     );
-  }, [zoom]);
+  }, [zoom, content]);
 
   const handleZoom = (z: string) => {
     if (z === "up") {
