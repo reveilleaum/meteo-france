@@ -39,7 +39,7 @@ export default function Home() {
     <main className={montserrat.className}>
       {display ? (
         <>
-          {windowWidth <= 1024 && !forecastData && (
+          {windowWidth <= 720 && !forecastData && (
             <h1>
               Zoomez et cliquez sur une ville pour afficher les prévisions
             </h1>

@@ -4,10 +4,13 @@
   width: 100%;
   height: auto;
   transition: transform 0.8s ease, opacity 0.5s ease;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, -2%);
 }
 
 #map-svg.offset {
-  transform: translate(-20%, -2%);
+  transform: translate(-70%, -2%);
 }
 
 #map-svg .map_svg__main-group {
@@ -45,7 +48,7 @@
 
 @media (max-width: 1024px) {
   #map-svg {
-    transform: translate(0, 0);
+    transform: translate(-50%, 0);
   }
 }
 

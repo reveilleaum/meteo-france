@@ -1,5 +1,9 @@
 /** @format */
 
+body {
+  background: rgba(88, 121, 243, 1);
+}
+
 main {
   display: flex !important;
   flex-direction: column;
@@ -11,7 +15,8 @@ main {
   line-height: 1.2 !important;
   box-sizing: border-box;
   overflow: hidden;
-  background: rgba(88, 121, 243, 1);
+  max-width: 2000px;
+  margin: auto;
 }
 
 h1 {
