@@ -30,7 +30,7 @@ export default function Nav({ view, setView, windowWidth, setData }: Props) {
       )}
       <nav className={styles.nav}>
         <span className={itemClass("today")} onClick={() => setView("today")}>
-          Aujourd'hui
+          Aujourd&apos;hui
         </span>
         <span
           className={itemClass("nextDays")}
