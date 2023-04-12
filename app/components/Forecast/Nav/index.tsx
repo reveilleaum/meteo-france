@@ -19,16 +19,16 @@ export default function Nav({ view, setView, windowWidth, setData }: Props) {
 
   return (
     <>
-      {windowWidth <= 1024 && (
-        <div className={styles.closer}>
-          <Cross
-            onClick={() => {
-              setData(null);
-            }}
-          />
-        </div>
-      )}
       <nav className={styles.nav}>
+        {windowWidth <= 1024 && (
+          <div className={styles.closer}>
+            <Cross
+              onClick={() => {
+                setData(null);
+              }}
+            />
+          </div>
+        )}
         <span className={itemClass("today")} onClick={() => setView("today")}>
           Aujourd&apos;hui
         </span>

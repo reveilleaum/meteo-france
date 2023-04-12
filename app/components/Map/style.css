@@ -53,25 +53,33 @@
   .mobile-container {
     overflow: scroll;
     position: relative;
+    border: solid 1px white;
   }
   .zoom-btn {
-    position: absolute;
-    left: 10px;
-    bottom: 10px;
+    position: sticky;
+    top: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: white;
+    padding: 10px;
+    width: 30px;
+    z-index: 1;
   }
   .zoom-btn span {
     display: block;
     text-align: center;
-    width: 30px;
+    width: 100%;
     padding: 5px 0;
-    color: rgba(88, 121, 243, 1);
+    color: white;
+    background: #cdcdcd;
   }
   .zoom-btn span:first-child {
     border-bottom: solid 1px rgba(88, 121, 243, 1);
+  }
+  .map-mobile {
+    transform-origin: top left;
+    margin-top: -60px;
   }
 }

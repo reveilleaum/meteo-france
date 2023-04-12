@@ -3,6 +3,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useWindowSize } from "./hooks";
 import { getGeo, getForecast } from "./api/openweathermap";
 
 import Map from "./components/Map";
@@ -14,8 +15,9 @@ const montserrat = Montserrat({ subsets: ["latin"] });
 export default function Home() {
   const [forecastData, setForecastData] = useState(null);
   const [city, setCity] = useState("");
-  const [windowWidth, setWindowWidth] = useState(0);
-  const [display, setDisplay] = useState(0);
+  const [display, setDisplay] = useState(false);
+
+  const { windowWidth } = useWindowSize();
 
   useEffect(() => {
     if (city) {
@@ -30,17 +32,7 @@ export default function Home() {
   }, [city]);
 
   useEffect(() => {
-    setWindowWidth(window.innerWidth);
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    setTimeout(() => {
-      setDisplay(1);
-    }, 200);
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    if (windowWidth) setDisplay(true);
   }, []);
 
   return (

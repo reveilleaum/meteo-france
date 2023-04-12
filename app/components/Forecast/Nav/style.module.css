@@ -3,6 +3,7 @@
 .nav {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   margin-bottom: 40px;
 }
 .item {
@@ -24,7 +25,11 @@
   display: flex;
   justify-content: flex-end;
   padding: 10px 16px;
+  width: 100%;
 }
 .closer svg {
   height: 30px;
+}
+.closer svg path {
+  fill: rgba(88, 121, 243, 1);
 }

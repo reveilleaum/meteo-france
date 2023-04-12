@@ -30,7 +30,7 @@ export default function Map({ selectCity, data, windowWidth }: Props) {
 
   const contentMobile = useMemo(() => {
     return (
-      <div style={{ transform: `scale(${zoom})`, transformOrigin: "top left" }}>
+      <div className="map-mobile" style={{ transform: `scale(${zoom})` }}>
         {content}
       </div>
     );
@@ -48,13 +48,13 @@ export default function Map({ selectCity, data, windowWidth }: Props) {
   return (
     <>
       {windowWidth < 720 ? (
-        <>
-          <div className="mobile-container">{contentMobile}</div>
+        <div className="mobile-container">
           <div className="zoom-btn">
             <span onClick={() => handleZoom("up")}>+</span>
             <span onClick={() => handleZoom("down")}>-</span>
           </div>
-        </>
+          {contentMobile}
+        </div>
       ) : (
         content
       )}
