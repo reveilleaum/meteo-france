@@ -1,9 +1,9 @@
 /** @format */
 
-import { Dispatch, SetStateAction, useMemo, useState } from "react";
+import { Dispatch, SetStateAction, useCallback, useState } from "react";
 
 import MapSVG from "/public/map.svg";
-import "./style.css";
+import styles from "./style.module.css";
 
 interface Props {
   selectCity: Dispatch<SetStateAction<string>>;
@@ -14,13 +14,12 @@ interface Props {
 export default function Map({ selectCity, data, windowWidth }: Props) {
   const [zoom, setZoom] = useState(1);
 
-  const content = useMemo(() => {
-    let svgClassName = "";
-    if (data) svgClassName += "offset";
+  const content = useCallback(() => {
+    let svgClassName = null;
+    if (data) svgClassName = styles.offset;
     return (
       <MapSVG
-        id="map-svg"
-        className={svgClassName}
+        className={[svgClassName, styles.mapSvg].join(" ")}
         onClick={(event: React.ChangeEvent<SVGElement>) => {
           if (event.target.ariaLabel) selectCity(event.target.ariaLabel);
         }}
@@ -28,10 +27,10 @@ export default function Map({ selectCity, data, windowWidth }: Props) {
     );
   }, [data, selectCity]);
 
-  const contentMobile = useMemo(() => {
+  const contentMobile = useCallback(() => {
     return (
-      <div className="map-mobile" style={{ transform: `scale(${zoom})` }}>
-        {content}
+      <div className={styles.mapMobile} style={{ transform: `scale(${zoom})` }}>
+        {content()}
       </div>
     );
   }, [zoom, content]);
@@ -48,15 +47,15 @@ export default function Map({ selectCity, data, windowWidth }: Props) {
   return (
     <>
       {windowWidth < 720 ? (
-        <div className="mobile-container">
-          <div className="zoom-btn">
+        <div className={styles.mobileContainer}>
+          <div className={styles.zoomBtn}>
             <span onClick={() => handleZoom("up")}>+</span>
             <span onClick={() => handleZoom("down")}>-</span>
           </div>
-          {contentMobile}
+          {contentMobile()}
         </div>
       ) : (
-        content
+        content()
       )}
     </>
   );

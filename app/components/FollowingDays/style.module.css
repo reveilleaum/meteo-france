@@ -17,21 +17,3 @@
   height: 12px;
   margin-bottom: 8px;
 }
-.left {
-  display: flex;
-  align-items: flex-start;
-  text-align: center;
-  flex-direction: column;
-}
-.right {
-  display: flex;
-  align-items: flex-end;
-  text-align: center;
-  flex-direction: column;
-}
-.center {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  flex-direction: column;
-}

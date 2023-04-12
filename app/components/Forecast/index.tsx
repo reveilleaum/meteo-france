@@ -6,14 +6,15 @@ import moment from "moment";
 import "moment/locale/fr";
 
 import styles from "./style.module.css";
+import globalStyles from "../../global.module.css";
 
 import IconDroplet from "/public/icons/droplet.svg";
 import IconLocation from "/public/icons/location.svg";
 import IconWind from "/public/icons/wind.svg";
 
-import Nav from "./Nav";
-import HourlyInfos from "./HourlyInfos";
-import FollowingDays from "./FollowingDays";
+import Nav from "../Nav";
+import HourlyInfos from "../HourlyInfos";
+import FollowingDays from "../FollowingDays";
 
 interface Props {
   data: any;
@@ -36,38 +37,53 @@ export default function Forecast({ data, city, windowWidth, setData }: Props) {
       {view === "today" ? (
         <>
           <div>
-            <span className={styles.title}>{city}</span>
+            <span className={globalStyles.title}>{city}</span>
             <div className={styles.content_date}>
-              <span className={[styles.text, styles.text_medium].join(" ")}>
+              <span
+                className={[globalStyles.text, globalStyles.text_medium].join(
+                  " "
+                )}
+              >
                 {moment().locale("fr").format("dddd")}&#160;
               </span>
-              <span className={[styles.text, styles.text_medium].join(" ")}>
+              <span
+                className={[globalStyles.text, globalStyles.text_medium].join(
+                  " "
+                )}
+              >
                 {moment().locale("fr").format("LL")}
               </span>
             </div>
-            <div className={styles.flexRow}>
+            <div className={globalStyles.flexRow}>
               <span
                 className={[
                   styles.content_mainInfos,
-                  styles.text,
-                  styles["w-33"],
+                  globalStyles.text,
+                  globalStyles["w-33"],
                 ].join(" ")}
               >
-                <span className={styles.text_large}>
+                <span className={globalStyles.text_large}>
                   {data.daily[0].temp.day.toFixed(0)}°
                 </span>
-                <span className={styles.flexRow}>
-                  <span className={styles.min} style={{ marginRight: "6px" }}>
+                <span className={globalStyles.flexRow}>
+                  <span
+                    className={globalStyles.min}
+                    style={{ marginRight: "6px" }}
+                  >
                     {data.daily[0].temp.min.toFixed(0)}°
                   </span>
-                  <span className={styles.max}>
+                  <span className={globalStyles.max}>
                     {data.daily[0].temp.max.toFixed(0)}°
                   </span>
                 </span>
                 <span>Ress. {data.daily[0].feels_like.day.toFixed(0)}°</span>
                 <span>UV {data.daily[0].uvi.toFixed(0)}</span>
               </span>
-              <div className={[styles.flexCol, styles["w-66"]].join(" ")}>
+              <div
+                className={[globalStyles.flexCol, globalStyles["w-66"]].join(
+                  " "
+                )}
+              >
                 <Image
                   src={`https://openweathermap.org/img/wn/${data.daily[0].weather[0].icon}@2x.png`}
                   alt="weather icon"
@@ -77,9 +93,9 @@ export default function Forecast({ data, city, windowWidth, setData }: Props) {
                 />
                 <span
                   className={[
-                    styles.text,
-                    styles.text_medium,
-                    styles.center,
+                    globalStyles.text,
+                    globalStyles.text_medium,
+                    globalStyles.center,
                   ].join(" ")}
                   style={{ transform: "translateY(-16px)", maxWidth: 120 }}
                 >
@@ -90,7 +106,10 @@ export default function Forecast({ data, city, windowWidth, setData }: Props) {
           </div>
           <div className={styles.content_windInfos}>
             <span
-              className={[styles.text, styles.content_windInfos_text].join(" ")}
+              className={[
+                globalStyles.text,
+                styles.content_windInfos_text,
+              ].join(" ")}
             >
               <div className={styles.content_windInfos_picto}>
                 <IconDroplet />
@@ -98,7 +117,10 @@ export default function Forecast({ data, city, windowWidth, setData }: Props) {
               {data.daily[0].humidity}%
             </span>
             <span
-              className={[styles.text, styles.content_windInfos_text].join(" ")}
+              className={[
+                globalStyles.text,
+                styles.content_windInfos_text,
+              ].join(" ")}
             >
               <div className={styles.content_windInfos_picto}>
                 <IconWind />
@@ -115,13 +137,11 @@ export default function Forecast({ data, city, windowWidth, setData }: Props) {
             </span>
           </div>
           <HourlyInfos
-            parentStyles={styles}
             data={data.hourly.filter((el: any, i: number) => i < 12)}
           />
         </>
       ) : (
         <FollowingDays
-          parentStyles={styles}
           data={data.daily.filter((el: any, i: number) => i < 3)}
         />
       )}
