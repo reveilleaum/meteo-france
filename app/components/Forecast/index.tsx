@@ -6,7 +6,7 @@ import moment from "moment";
 import "moment/locale/fr";
 
 import styles from "./style.module.css";
-import globalStyles from "../../global.module.css";
+import globalStyles from "../../style/global.module.css";
 
 import IconDroplet from "/public/icons/droplet.svg";
 import IconLocation from "/public/icons/location.svg";

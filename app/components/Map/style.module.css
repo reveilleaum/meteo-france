@@ -18,23 +18,23 @@
 }
 
 .mapSvg path {
-  fill: white !important;
+  fill: var(--secondary-bg-color) !important;
   fill-opacity: 1 !important;
-  stroke: rgba(88, 121, 243, 1) !important;
+  stroke: var(--primary-bg-color) !important;
   stroke-width: 3 !important;
   stroke-opacity: 0.2 !important;
 }
 
 .mapSvg tspan {
-  fill: rgba(88, 121, 243, 1) !important;
+  fill: var(--primary-bg-color) !important;
   font-style: normal !important;
   font-size: 18px !important;
   cursor: default;
 }
 
 .mapSvg ellipse {
-  fill: #da2e2e !important;
-  stroke: rgba(88, 121, 243, 1) !important;
+  fill: var(--min-temp) !important;
+  stroke: var(--primary-bg-color) !important;
   stroke-width: 2 !important;
   transition: stroke-width 0.2s ease;
   cursor: pointer;
@@ -56,7 +56,7 @@
   .mobileContainer {
     overflow: scroll;
     position: relative;
-    border: solid 1px white;
+    border: solid 1px var(--secondary-bg-color);
   }
   .zoomBtn {
     position: sticky;
@@ -75,11 +75,11 @@
     text-align: center;
     width: 100%;
     padding: 5px 0;
-    color: white;
-    background: #cdcdcd;
+    color: var(--secondary-bg-color);
+    background: var(--tertiary-bg-color);
   }
   .zoomBtn span:first-child {
-    border-bottom: solid 1px rgba(88, 121, 243, 1);
+    border-bottom: solid 1px var(--primary-bg-color);
   }
   .mapMobile {
     transform-origin: top left;

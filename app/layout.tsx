@@ -1,7 +1,8 @@
 /** @format */
 
 import "reset-css/reset.css";
-import "./style.css";
+import "./style/index.css";
+import "./style/variables.css";
 
 export const metadata = {
   title: "App meteo Matthieu",

@@ -1,0 +1,10 @@
+/** @format */
+
+html {
+  --primary-bg-color: rgba(88, 121, 243, 1);
+  --primary-bg-color-lighten: rgba(88, 121, 243, 0.15);
+  --secondary-bg-color: white;
+  --tertiary-bg-color: #cdcdcd;
+  --min-temp: #1e90ff;
+  --max-temp: #ff4500;
+}

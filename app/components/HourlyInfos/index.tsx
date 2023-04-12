@@ -5,7 +5,7 @@ import moment from "moment";
 import "moment/locale/fr";
 
 import styles from "./style.module.css";
-import globalStyles from "../../global.module.css";
+import globalStyles from "../../style/global.module.css";
 
 import Chart from "../Chart";
 import { Key } from "react";

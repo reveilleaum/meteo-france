@@ -56,10 +56,10 @@
   flex-direction: column;
 }
 .min {
-  color: #1e90ff;
+  color: var(--min-temp);
 }
 .max {
-  color: #ff4500;
+  color: var(--min-temp);
 }
 .text_small {
   font-size: 14px;
