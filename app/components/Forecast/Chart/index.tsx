@@ -32,7 +32,7 @@ export default function MyChart({ hourly }: Props) {
         type="monotone"
         dataKey="temp"
         stroke="none"
-        fill="rgba(255, 255, 255, 0.15)"
+        fill="rgba(88, 121, 243, 0.15)"
         fillOpacity={1}
       />
       <YAxis width={0} domain={[min, max]} />

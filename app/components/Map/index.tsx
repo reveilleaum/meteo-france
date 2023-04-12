@@ -1,6 +1,6 @@
 /** @format */
 
-import { Dispatch, SetStateAction, useEffect, useMemo, useState } from "react";
+import { Dispatch, SetStateAction, useMemo, useState } from "react";
 
 import MapSVG from "/public/map.svg";
 import "./style.css";
@@ -13,23 +13,20 @@ interface Props {
 
 export default function Map({ selectCity, data, windowWidth }: Props) {
   const [zoom, setZoom] = useState(1);
-  const [display, setDisplay] = useState(0);
 
   const content = useMemo(() => {
     let svgClassName = "";
     if (data) svgClassName += "offset";
-    if (display) {
-      return (
-        <MapSVG
-          id="map-svg"
-          className={svgClassName}
-          onClick={(event: React.ChangeEvent<SVGElement>) => {
-            if (event.target.ariaLabel) selectCity(event.target.ariaLabel);
-          }}
-        />
-      );
-    }
-  }, [data, display]);
+    return (
+      <MapSVG
+        id="map-svg"
+        className={svgClassName}
+        onClick={(event: React.ChangeEvent<SVGElement>) => {
+          if (event.target.ariaLabel) selectCity(event.target.ariaLabel);
+        }}
+      />
+    );
+  }, [data]);
 
   const contentMobile = useMemo(() => {
     return (
@@ -47,12 +44,6 @@ export default function Map({ selectCity, data, windowWidth }: Props) {
       setZoom(zoom - 0.3);
     }
   };
-
-  useEffect(() => {
-    setTimeout(() => {
-      setDisplay(1);
-    }, 200);
-  }, []);
 
   return (
     <>

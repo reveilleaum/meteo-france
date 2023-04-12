@@ -15,6 +15,7 @@ export default function Home() {
   const [forecastData, setForecastData] = useState(null);
   const [city, setCity] = useState("");
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [display, setDisplay] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -37,26 +38,38 @@ export default function Home() {
     }
   }, [city]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setDisplay(1);
+    }, 200);
+  }, []);
+
   return (
     <main className={montserrat.className}>
-      {windowWidth <= 1024 && !forecastData && (
-        <h1>Zoomez et cliquez sur une ville pour afficher les prévisions</h1>
-      )}
-      {((windowWidth <= 1024 && !forecastData) || windowWidth > 1024) && (
-        <Map
-          selectCity={setCity}
-          data={forecastData}
-          windowWidth={windowWidth}
-        />
-      )}
-      {forecastData && (
-        <Forecast
-          data={forecastData}
-          city={city}
-          windowWidth={windowWidth}
-          setData={setForecastData}
-        />
-      )}
+      {display ? (
+        <>
+          {windowWidth <= 1024 && !forecastData && (
+            <h1>
+              Zoomez et cliquez sur une ville pour afficher les prévisions
+            </h1>
+          )}
+          {((windowWidth <= 1024 && !forecastData) || windowWidth > 1024) && (
+            <Map
+              selectCity={setCity}
+              data={forecastData}
+              windowWidth={windowWidth}
+            />
+          )}
+          {forecastData && (
+            <Forecast
+              data={forecastData}
+              city={city}
+              windowWidth={windowWidth}
+              setData={setForecastData}
+            />
+          )}
+        </>
+      ) : null}
     </main>
   );
 }

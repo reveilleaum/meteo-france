@@ -12,12 +12,12 @@
 }
 
 .wrapper {
-  background: #4f35e2;
-  color: white;
+  background: white;
+  color: rgba(88, 121, 243, 1);
   width: 360px;
   height: 638px;
   border-radius: 30px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
   overflow: auto;
   position: absolute;
   transform: translate(100%, 0);

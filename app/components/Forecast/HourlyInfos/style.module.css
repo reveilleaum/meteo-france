@@ -14,7 +14,7 @@
   grid-template-columns: repeat(12, 60px);
 }
 .content_hourlyInfos_item {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(88, 121, 243, 0.15);
   padding: 20px 0 40px;
   display: flex;
   flex-direction: column;

@@ -13,7 +13,7 @@
 }
 .itemActive::after {
   content: "";
-  background: white;
+  background: rgba(88, 121, 243, 1);
   width: 100%;
   height: 1px;
   position: absolute;
