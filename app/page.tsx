@@ -14,17 +14,8 @@ const montserrat = Montserrat({ subsets: ["latin"] });
 export default function Home() {
   const [forecastData, setForecastData] = useState(null);
   const [city, setCity] = useState("");
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(0);
   const [display, setDisplay] = useState(0);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   useEffect(() => {
     if (city) {
@@ -39,9 +30,17 @@ export default function Home() {
   }, [city]);
 
   useEffect(() => {
+    setWindowWidth(window.innerWidth);
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
     setTimeout(() => {
       setDisplay(1);
     }, 200);
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (

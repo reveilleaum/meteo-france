@@ -116,13 +116,13 @@ export default function Forecast({ data, city, windowWidth, setData }: Props) {
           </div>
           <HourlyInfos
             parentStyles={styles}
-            data={data.hourly.filter((el, i) => i < 12)}
+            data={data.hourly.filter((el: any, i: number) => i < 12)}
           />
         </>
       ) : (
         <FollowingDays
           parentStyles={styles}
-          data={data.daily.filter((el, i) => i < 3)}
+          data={data.daily.filter((el: any, i: number) => i < 3)}
         />
       )}
     </div>

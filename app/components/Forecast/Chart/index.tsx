@@ -7,12 +7,7 @@ interface Props {
 }
 
 export default function MyChart({ hourly }: Props) {
-  const data = hourly.map((hour) => {
-    return {
-      temp: hour.temp,
-    };
-  });
-  const vals = hourly.map((hour) => hour.temp);
+  const vals = hourly.map((hour: { temp: number }) => hour.temp);
   const max = Math.max(...vals);
   const min = Math.min(...vals);
 
